@@ -15,6 +15,16 @@ export const useAuthStore = defineStore("auth", () => {
     }
   }
 
+  async function registerUser(payload) {
+    try {
+      const response = await api.auth.registerUser(payload);
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+
   async function userInfo(user_id) {
     try {
       const response = await api.auth.userInfo(user_id);
@@ -22,5 +32,10 @@ export const useAuthStore = defineStore("auth", () => {
       return response.data;
     } catch (error) {}
   }
-  return { user, userLogin, userInfo };
+  return { 
+    user, 
+    userLogin, 
+    userInfo, 
+    registerUser 
+  };
 });

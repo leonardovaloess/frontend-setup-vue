@@ -5,4 +5,7 @@ export default (httpClient) => ({
   userInfo: (user_id) => {
     return httpClient.get(`/users/${user_id}`);
   },
+  registerUser: (data) => {
+    return httpClient.post("/sign-up", data);
+  },
 });
