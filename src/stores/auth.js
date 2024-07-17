@@ -36,6 +36,6 @@ export const useAuthStore = defineStore("auth", () => {
     user, 
     userLogin, 
     userInfo, 
-    registerUser 
+    registerUser
   };
 });
