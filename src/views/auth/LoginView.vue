@@ -47,8 +47,13 @@ import LoginImage from "@/components/LoginImage.vue";
         </div>
       </div>
     </div>
-    <div class="w-full hidden md:flex items-center justify-center bg-blue-500">
-      <LoginImage />
+    <div class="w-full hidden md:flex items-center justify-center bg-black">
+      <!--<LoginImage />-->
+      <img
+        class="w-full h-full object-cover opacity-30"
+        src="../../assets/png/login-image-background.jpg"
+        alt="background"
+      />
     </div>
   </div>
 </template>

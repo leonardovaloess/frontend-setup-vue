@@ -35,6 +35,18 @@ const router = createRouter({
       ],
     },
     {
+      path: "/teste",
+      component: TheContainer,
+      meta: { requiresAuth: false },
+      children: [
+        {
+          path: "/home",
+          name: "Logado",
+          component: () => import("../views/logado/LogadoView.vue"),
+        },
+      ],
+    },
+    {
       path: "/:catchAll(.*)*",
       component: () => import("../views/NotFound.vue"),
     },

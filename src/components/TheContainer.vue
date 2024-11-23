@@ -1,41 +1,42 @@
 <script setup>
 import BaseHeader from "@/components/BaseHeader.vue";
+import BaseSidebar from "./sidebar/BaseSidebar.vue";
 import { onMounted } from "vue";
 import { useAuthStore } from "@/stores/auth";
 
 const authStore = useAuthStore();
-const { userInfo } = authStore;
-
-const loadUserInfos = async () => {
-  const user_id = localStorage.getItem("user_id");
-  await userInfo(user_id);
-};
-
-onMounted(async () => {
-  await loadUserInfos();
-});
 </script>
 
 <template>
-  <div class="page-background">
-    <BaseHeader />
-    <main :class="`main `">
-      <router-view />
+  <div class="page-background flex items-start">
+    <BaseSidebar />
+
+    <main :class="`main bg-gray-100 w-full`">
+      <BaseHeader />
+
+      <div class="base-padding bg-gray-100 p-6 h-full">
+        <div class="page bg-white rounded-md">
+          <router-view />
+        </div>
+      </div>
     </main>
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+.page-background {
+  height: 100vh;
+}
 .main {
   transition: all ease-in-out 0.4s;
-  padding-top: 2rem;
-}
-.page {
-  margin-left: 200px;
-}
-@media (min-width: 0px) and (max-width: 768px) {
-  .page {
-    margin-left: 0px;
+  height: 100vh;
+  margin-left: 260px;
+  @media (max-width: 1024px) {
+    margin-left: 0;
   }
+}
+
+.page {
+  height: 100%;
 }
 </style>
