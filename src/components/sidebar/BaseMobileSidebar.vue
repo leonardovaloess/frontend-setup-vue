@@ -42,7 +42,7 @@ const active_link_id = ref(null);
   animation: slide-in 0.5s forwards;
 }
 .active {
-  background-color: #3b81f6;
+  background-color: var(--tw-color-blue-500);
   span {
     color: #fff;
   }
